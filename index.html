@@ -1,151 +1,117 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Color it! - Developer Website</title>
-  <meta name="description" content="Official developer website for Color it! - a vibrant, colorful app experience." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <title>Color it! - Creative Coloring App</title>
   <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-      font-family: 'Poppins', sans-serif;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f0f8ff, #ffe6f0);
+      color: #333;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
     }
-    body, html {
-      height: 100%;
-      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-      overflow-x: hidden;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      animation: bgShift 15s ease infinite;
-    }
-    @keyframes bgShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     header {
-      background: rgba(0,0,0,0.3);
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-shadow: 0 0 8px rgba(0,0,0,0.5);
-      user-select: none;
-      animation: fadeInDown 1s ease forwards;
+      background-color: #ff69b4;
+      color: white;
+      padding: 20px 0;
+      font-size: 2em;
     }
-
-    main {
-      flex: 1;
+    .section {
+      padding: 40px 20px;
+    }
+    .features {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      max-width: 700px;
-      margin: 3rem auto;
-      background: rgba(255 255 255 / 0.15);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      backdrop-filter: blur(8px);
-      animation: fadeInUp 1.2s ease forwards;
+      gap: 20px;
     }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    .feature {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 280px;
+      transition: transform 0.3s;
     }
-
-    p {
-      font-size: 1.25rem;
-      margin: 0.75rem 0;
-      max-width: 90%;
-      text-align: center;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-      line-height: 1.5;
-      animation: fadeIn 1.5s ease forwards;
+    .feature:hover {
+      transform: translateY(-5px);
     }
-
-    a {
-      color: #ffeb3b;
-      font-weight: 700;
-      text-decoration: none;
-      position: relative;
-      transition: color 0.3s ease;
-      animation: fadeIn 1.7s ease forwards;
+    .future {
+      background: #fff0f5;
+      border: 2px dashed #ff69b4;
+      padding: 25px;
+      margin-top: 30px;
+      border-radius: 10px;
     }
-    a::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: #ffeb3b;
-      bottom: -3px;
-      left: 0;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
-    }
-    a:hover {
-      color: #fff;
-    }
-    a:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
     footer {
-      text-align: center;
-      padding: 1rem 0;
-      font-size: 0.9rem;
-      color: rgba(255 255 255 / 0.6);
-      user-select: none;
-      animation: fadeIn 2s ease forwards;
-    }
-
-    /* Animations */
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      background-color: #f1f1f1;
+      padding: 10px;
+      font-size: 0.9em;
     }
     @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
-
-    /* Responsive */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2.25rem;
-      }
-      p {
-        font-size: 1rem;
-      }
-      main {
-        margin: 2rem 1rem;
-      }
+    a {
+      color: #ff69b4;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <header>Color it! Developer Website</header>
-  <main>
-    <h1>Welcome to Color it!</h1>
-    <p>This is the official developer website for <strong>Color it!</strong>.</p>
-    <p>Contact us at <a href="mailto:colorit2025@gmail.com">colorit2025@gmail.com</a></p>
-    <p>Find the <code>app-ads.txt</code> file at the root for ad authorization.</p>
-  </main>
-  <footer>© 2025 Color it!. All rights reserved.</footer>
+  <header>
+    🎨 Welcome to Color it!
+  </header>
+
+  <div class="section">
+    <h2>Let your creativity shine!</h2>
+    <p><strong>Color it!</strong> is a fun, relaxing coloring app for all ages. Whether you're a child or just young at heart, enjoy beautiful coloring pages, doodles, and creative designs right from your phone!</p>
+  </div>
+
+  <div class="section">
+    <h2>✨ Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>🖌️ Easy to Use</h3>
+        <p>Simple tap-to-fill interface — perfect for quick fun!</p>
+      </div>
+      <div class="feature">
+        <h3>🎨 Hundreds of Designs</h3>
+        <p>From animals to mandalas, explore lots of categories.</p>
+      </div>
+      <div class="feature">
+        <h3>🌈 Vibrant Colors</h3>
+        <p>Choose from dozens of palettes to bring your art to life.</p>
+      </div>
+      <div class="feature">
+        <h3>📤 Share Your Creations</h3>
+        <p>Save and show off your colorful masterpieces with friends.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section future">
+    <h2>🚀 What's Coming Soon</h2>
+    <p>We’re just getting started! In the next updates, expect:</p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li>🖼️ More images and coloring pages</li>
+      <li>📁 New categories and collections</li>
+      <li>🧰 More coloring tools (outils) for even more creativity</li>
+    </ul>
+    <p>Stay tuned for exciting new features!</p>
+  </div>
+
+  <div class="section">
+    <h2>📲 Get Color it!</h2>
+    <p>Download now and start coloring your stress away.</p>
+    <p><em>Coming soon to Google Play Store</em></p>
+  </div>
+
+  <footer>
+    Contact us at: <a href="mailto:colorit2025@gmail.com">colorit2025@gmail.com</a><br>
+    © 2025 Yassgo-dev. All rights reserved.
+  </footer>
 </body>
 </html>
