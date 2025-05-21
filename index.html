@@ -4,33 +4,43 @@
   <meta charset="UTF-8" />
   <title>Color it! - Creative Coloring App</title>
   <style>
-    :root {
-      --mouse-x: 50%;
-      --mouse-y: 50%;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 182, 193, 0.25), transparent 60%);
-      z-index: 0;
-      transition: background-position 0.2s ease;
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow-x: hidden;
     }
 
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f0f8ff, #ffe6f0);
-      color: #333;
+      background: linear-gradient(270deg, #ffe6f0, #e0ffff, #fff5cc, #d1ffd1, #ffd1d1);
+      background-size: 1000% 1000%;
+      animation: backgroundWave 20s ease infinite;
       text-align: center;
-      animation: fadeIn 2s ease-in;
-      position: relative;
-      z-index: 1;
+      color: #333;
+    }
+
+    @keyframes backgroundWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .trail {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.7;
+      animation: fadeOut 0.8s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(2);
+      }
     }
 
     header {
@@ -77,11 +87,6 @@
       background-color: #f1f1f1;
       padding: 10px;
       font-size: 0.9em;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     a {
@@ -145,13 +150,23 @@
     © 2025 Yassgo-dev. All rights reserved.
   </footer>
 
-  <!-- Mouse move background animation -->
+  <!-- Rainbow trail script -->
   <script>
-    document.addEventListener("mousemove", (e) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      document.documentElement.style.setProperty('--mouse-x', x + '%');
-      document.documentElement.style.setProperty('--mouse-y', y + '%');
+    const colors = ['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'];
+    let colorIndex = 0;
+
+    document.addEventListener("mousemove", function(e) {
+      const trail = document.createElement("div");
+      trail.className = "trail";
+      trail.style.left = e.pageX + "px";
+      trail.style.top = e.pageY + "px";
+      trail.style.backgroundColor = colors[colorIndex];
+      document.body.appendChild(trail);
+      setTimeout(() => {
+        trail.remove();
+      }, 800);
+
+      colorIndex = (colorIndex + 1) % colors.length;
     });
   </script>
 </body>
