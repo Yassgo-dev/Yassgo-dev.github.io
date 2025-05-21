@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Color it! - Creative Coloring App</title>
   <style>
+    :root {
+      --mouse-x: 50%;
+      --mouse-y: 50%;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(255, 182, 193, 0.25), transparent 60%);
+      z-index: 0;
+      transition: background-position 0.2s ease;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -11,22 +29,29 @@
       color: #333;
       text-align: center;
       animation: fadeIn 2s ease-in;
+      position: relative;
+      z-index: 1;
     }
+
     header {
       background-color: #ff69b4;
       color: white;
       padding: 20px 0;
       font-size: 2em;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+
     .section {
       padding: 40px 20px;
     }
+
     .features {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
+
     .feature {
       background: white;
       border-radius: 12px;
@@ -35,9 +60,11 @@
       width: 280px;
       transition: transform 0.3s;
     }
+
     .feature:hover {
       transform: translateY(-5px);
     }
+
     .future {
       background: #fff0f5;
       border: 2px dashed #ff69b4;
@@ -45,15 +72,18 @@
       margin-top: 30px;
       border-radius: 10px;
     }
+
     footer {
       background-color: #f1f1f1;
       padding: 10px;
       font-size: 0.9em;
     }
+
     @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
+
     a {
       color: #ff69b4;
       text-decoration: none;
@@ -63,7 +93,7 @@
 <body>
   <header>
     <img src="logo.png" alt="Color it! logo" style="height: 80px; vertical-align: middle;">
-  <h1 style="display: inline-block; margin-left: 10px; vertical-align: middle;">Welcome to Color it!</h1>
+    <h1 style="display: inline-block; margin-left: 10px; vertical-align: middle;">Welcome to Color it!</h1>
   </header>
 
   <div class="section">
@@ -114,5 +144,15 @@
     Contact us at: <a href="mailto:colorit2025@gmail.com">colorit2025@gmail.com</a><br>
     © 2025 Yassgo-dev. All rights reserved.
   </footer>
+
+  <!-- Mouse move background animation -->
+  <script>
+    document.addEventListener("mousemove", (e) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      document.documentElement.style.setProperty('--mouse-x', x + '%');
+      document.documentElement.style.setProperty('--mouse-y', y + '%');
+    });
+  </script>
 </body>
 </html>
