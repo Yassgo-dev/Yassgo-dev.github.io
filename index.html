@@ -27,19 +27,20 @@
 
     .trail {
       position: fixed;
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.7;
+      opacity: 0.8;
+      transform: translate(-50%, -50%);
       animation: fadeOut 0.8s forwards;
     }
 
     @keyframes fadeOut {
       to {
         opacity: 0;
-        transform: scale(2);
+        transform: scale(2) translate(-50%, -50%);
       }
     }
 
@@ -150,7 +151,7 @@
     © 2025 Yassgo-dev. All rights reserved.
   </footer>
 
-  <!-- Rainbow trail script -->
+  <!-- Rainbow trail script (centered on mouse) -->
   <script>
     const colors = ['#ff0000', '#ffa500', '#ffff00', '#008000', '#0000ff', '#4b0082', '#ee82ee'];
     let colorIndex = 0;
@@ -158,14 +159,13 @@
     document.addEventListener("mousemove", function(e) {
       const trail = document.createElement("div");
       trail.className = "trail";
-      trail.style.left = e.pageX + "px";
-      trail.style.top = e.pageY + "px";
+      trail.style.left = e.clientX + "px";
+      trail.style.top = e.clientY + "px";
       trail.style.backgroundColor = colors[colorIndex];
       document.body.appendChild(trail);
       setTimeout(() => {
         trail.remove();
       }, 800);
-
       colorIndex = (colorIndex + 1) % colors.length;
     });
   </script>
